@@ -23,13 +23,13 @@ Option A: GitHub Pages
 1. Enable GitHub Pages in repository settings.
 2. Set source to the main branch and root folder.
 3. GitHub will serve the file at:
-   https://<your-org>.github.io/robots.txt
+   https://gagiteck.github.io/robots.txt
 
 Option B: Cloudflare Worker Proxy
 Use a Cloudflare Worker to redirect requests from:
    https://www.gagiteck.com/robots.txt
 to:
-   https://<your-org>.github.io/robots.txt
+   https://gagiteck.github.io/robots.txt
 
 Example Worker Script:
 ─────────────────────────────────────────────────────────────
@@ -40,7 +40,7 @@ addEventListener('fetch', event => {
 async function handleRequest(request) {
   const url = new URL(request.url)
   if (url.pathname === '/robots.txt') {
-    return fetch('https://<your-org>.github.io/robots.txt')
+    return fetch('https://gagiteck.github.io/robots.txt')
   }
   return fetch(request)
 }
